@@ -11,10 +11,16 @@ export default class RepoIndexItem extends React.Component {
         const url = `/${company}/repos/${info.name}`;
 
         return (
-                <li onClick={(info) => {this.props._handleClick(url)}}>
-                    <div>{info.name}</div>
-                    <div>{info.language}</div>
-                </li>
+                <div className="repoIndexItem" onClick={(info) => {this.props._handleClick(url)}}>
+                    <ul>
+                        <li>{info.name}</li>
+                        <ul>
+                            <li>Language(s): {info.language}</li>
+                            <li>Forks: {info.forks_count}</li>
+                            <li>Stars: {info.stargazers_count}</li>
+                        </ul>
+                    </ul>
+                </div>
         );
     }
 }

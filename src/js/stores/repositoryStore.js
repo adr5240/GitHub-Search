@@ -8,11 +8,11 @@ class RepositoryStore extends EventEmitter {
         this.currentRepo = {};
     }
 
-    getCompany() {
+    getCurrentOrg() {
         return this.company;
     }
 
-    updateCompany(company) {
+    updateCurrentOrg(company) {
         this.company = company;
     }
 
@@ -26,7 +26,7 @@ class RepositoryStore extends EventEmitter {
 
     updateRepos(data) {
         this.repos = {};
-        
+
         data.forEach((el) => {
             this.repos[el.name] = el;
         });

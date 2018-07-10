@@ -25,7 +25,7 @@ export default class RepoIndexItem extends React.Component {
 
     _handleClick = () => {
         let repo = repositoryStore.getCurrentRepo().name;
-        let owner = repositoryStore.getCompany();
+        let owner = repositoryStore.getCurrentOrg();
 
         let callback = this.linkToContributors.bind(this, owner, repo);
 

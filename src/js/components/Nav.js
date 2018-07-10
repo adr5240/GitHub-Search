@@ -24,7 +24,7 @@ export default class Nav extends React.Component {
         const settingsClass = location.pathname.match(/^\/contributors/) ? "active" : "";
         const navClass = collapsed ? "collapse" : "";
 
-        const company = repositoryStore.getCompany();
+        const company = repositoryStore.getCurrentOrg();
 
         return (
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

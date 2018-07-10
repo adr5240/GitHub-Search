@@ -43,3 +43,11 @@ img {
     max-width: 90%;
     margin: 0 auto;
 }
+
+.repoIndexItem {
+    border-bottom: 1px solid lightgrey;
+}
+
+.repoIndexItem:last-of-type {
+    border-bottom: none;
+}

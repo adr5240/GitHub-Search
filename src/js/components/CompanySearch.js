@@ -24,7 +24,6 @@ export default class CompanySearch extends React.Component {
 
         axios.get(`https://api.github.com/orgs/${this.state.companyName}/members`)
             .then(response => {
-                console.log(response.data);
                 contributorStore.updateContributors(response.data);
                 callback();
             })
@@ -32,7 +31,7 @@ export default class CompanySearch extends React.Component {
 
     _linkToRepos = () => {
         this.safetyValue += 1;
-        repositoryStore.updateCompany(this.state.companyName);
+        repositoryStore.updateCurrentOrg(this.state.companyName);
         if(this.safetyValue == 2) {
             this.safetyValue = 0;
             this.props.history.push(`${this.state.companyName}/repos`);

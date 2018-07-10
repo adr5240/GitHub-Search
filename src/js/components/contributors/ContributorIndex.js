@@ -12,7 +12,7 @@ export default class ContributorIndex extends React.Component {
         super();
         this.state = { people: {}, peopleList: [], activeRepo: false }
         this.peopleList = [];
-        this.company = repositoryStore.getCompany();
+        this.company = repositoryStore.getCurrentOrg();
         this.currentRepo = [];
     }
 
@@ -24,7 +24,7 @@ export default class ContributorIndex extends React.Component {
         let callback = () => {this.setState({ people: contributorStore.getAll() });};
 
         if(activeRepo) {
-            this.company = repositoryStore.getCompany();
+            this.company = repositoryStore.getCurrentOrg();
             this.repo = repositoryStore.getCurrentRepo();
 
             axios.get(`https://api.github.com/repos/${this.company}/${this.repo.name}/contributors`)
@@ -49,7 +49,7 @@ export default class ContributorIndex extends React.Component {
         });
 
         list.sort((a, b) => {
-            return a.login > b.login;
+            return a.login.toLowerCase() > b.login.toLowerCase();
         });
 
         this._handleSorted(list);
